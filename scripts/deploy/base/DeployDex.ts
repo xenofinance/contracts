@@ -3,12 +3,15 @@ import { ethers } from "hardhat";
 import { Verify } from "../../Verify";
 import { Misc } from "../../Misc";
 import { writeFileSync } from "fs";
-import { SepoliaAddresses } from "../../addresses/SepoliaAddresses";
+import { ScrollTestnetAddresses } from "../../addresses/ScrollTestnetAddresses";
 
 async function main() {
   const signer = (await ethers.getSigners())[0];
 
-  const core = await Deploy.deployDex(signer, SepoliaAddresses.WETH_TOKEN);
+  const core = await Deploy.deployDex(
+    signer,
+    ScrollTestnetAddresses.WETH_TOKEN
+  );
 
   const data =
     "" +
@@ -27,7 +30,7 @@ async function main() {
   await Verify.verifyWithArgs(core[0].address, [signer.address]);
   await Verify.verifyWithArgs(core[1].address, [
     core[0].address,
-    SepoliaAddresses.WETH_TOKEN,
+    ScrollTestnetAddresses.WETH_TOKEN,
   ]);
 }
 

@@ -3,7 +3,7 @@ import { ethers } from "hardhat";
 import { Verify } from "../../Verify";
 import { Misc } from "../../Misc";
 import { BigNumber } from "ethers";
-import { SepoliaAddresses } from "../../addresses/SepoliaAddresses";
+import { ScrollTestnetAddresses } from "../../addresses/ScrollTestnetAddresses";
 import { writeFileSync } from "fs";
 import { parseUnits } from "ethers/lib/utils";
 

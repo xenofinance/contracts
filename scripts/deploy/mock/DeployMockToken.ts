@@ -34,7 +34,7 @@ async function main() {
     usdt.address +
     "\n";
   console.log(data);
-  writeFileSync("mock_tokens_sepolia_def.txt", data);
+  writeFileSync("mock_tokens_ScrollTestnet_def.txt", data);
 
   await Misc.wait(5);
 

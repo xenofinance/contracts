@@ -14,7 +14,7 @@ import {
 } from "../../typechain";
 import { TestHelper } from "../../test/TestHelper";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
-import { SepoliaAddresses } from "../addresses/SepoliaAddresses";
+import { ScrollTestnetAddresses } from "../addresses/ScrollTestnetAddresses";
 import { Misc } from "../Misc";
 
 async function main() {
@@ -30,9 +30,9 @@ async function main() {
   const voterAdr = "0xC9d5917A0cb82450Cd687AF31eCAaC967D7F121C";
   const minterAdr = "0x0C6868831c504Fb0bB61A54FEfC6464804380508";
 
-  const usdc = SepoliaAddresses.USDC_TOKEN;
-  const dai = SepoliaAddresses.DAI_TOKEN;
-  const usdt = SepoliaAddresses.USDT_TOKEN;
+  const usdc = ScrollTestnetAddresses.USDC_TOKEN;
+  const dai = ScrollTestnetAddresses.DAI_TOKEN;
+  const usdt = ScrollTestnetAddresses.USDT_TOKEN;
 
   const router = XenoRouter01__factory.connect(routerAdr, signer);
   const factory = XenoFactory__factory.connect(factoryAdr, signer);
@@ -55,7 +55,7 @@ async function main() {
     )
   );
 
-  // await Misc.runAndWait(() => IWETH__factory.connect(SepoliaAddresses.WBNB_TOKEN, signer).deposit({value: parseUnits('0.1')}));
+  // await Misc.runAndWait(() => IWETH__factory.connect(ScrollTestnetAddresses.WBNB_TOKEN, signer).deposit({value: parseUnits('0.1')}));
 
   console.log("tokens minted");
 
@@ -99,7 +99,7 @@ async function main() {
     router,
     signer,
     usdc,
-    SepoliaAddresses.WETH_TOKEN,
+    ScrollTestnetAddresses.WETH_TOKEN,
     parseUnits("1000", 6),
     parseUnits("0.1", 18),
     true

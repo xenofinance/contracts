@@ -4,7 +4,7 @@ import { Verify } from "../../Verify";
 import { Misc } from "../../Misc";
 import { writeFileSync } from "fs";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
-import { SepoliaAddresses } from "../../addresses/SepoliaAddresses";
+import { ScrollTestnetAddresses } from "../../addresses/ScrollTestnetAddresses";
 import {
   XenoMinter__factory,
   XenoVoter__factory,
@@ -14,24 +14,24 @@ import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { TimeUtils } from "../../../test/TimeUtils";
 
 const voterTokens = [
-  SepoliaAddresses.WETH_TOKEN,
-  SepoliaAddresses.USDC_TOKEN,
-  SepoliaAddresses.DAI_TOKEN,
-  SepoliaAddresses.USDT_TOKEN,
+  ScrollTestnetAddresses.WETH_TOKEN,
+  ScrollTestnetAddresses.USDC_TOKEN,
+  ScrollTestnetAddresses.DAI_TOKEN,
+  ScrollTestnetAddresses.USDT_TOKEN,
 ];
 
 const claimants = [
-  SepoliaAddresses.GOVERNANCE, // for Governance
-  SepoliaAddresses.GOVERNANCE, // for Sphere
-  SepoliaAddresses.GOVERNANCE, // for Usd+
-  SepoliaAddresses.GOVERNANCE, // for Qi-dao
-  SepoliaAddresses.GOVERNANCE, // for Beefy
-  SepoliaAddresses.GOVERNANCE, // for Valas
-  SepoliaAddresses.GOVERNANCE, // for DotDot
-  SepoliaAddresses.GOVERNANCE, // for TUSD
-  SepoliaAddresses.GOVERNANCE, // for Stader
-  SepoliaAddresses.GOVERNANCE, // for reserve1
-  SepoliaAddresses.GOVERNANCE, // for reserve2
+  ScrollTestnetAddresses.GOVERNANCE, // for Governance
+  ScrollTestnetAddresses.GOVERNANCE, // for Sphere
+  ScrollTestnetAddresses.GOVERNANCE, // for Usd+
+  ScrollTestnetAddresses.GOVERNANCE, // for Qi-dao
+  ScrollTestnetAddresses.GOVERNANCE, // for Beefy
+  ScrollTestnetAddresses.GOVERNANCE, // for Valas
+  ScrollTestnetAddresses.GOVERNANCE, // for DotDot
+  ScrollTestnetAddresses.GOVERNANCE, // for TUSD
+  ScrollTestnetAddresses.GOVERNANCE, // for Stader
+  ScrollTestnetAddresses.GOVERNANCE, // for reserve1
+  ScrollTestnetAddresses.GOVERNANCE, // for reserve2
 ];
 
 const claimantsAmounts = [
@@ -56,7 +56,7 @@ const WARMING_UP = 1;
 async function main() {
   let signer;
   if (hre.network.name === "hardhat") {
-    signer = await Misc.impersonate(SepoliaAddresses.GOVERNANCE);
+    signer = await Misc.impersonate(ScrollTestnetAddresses.GOVERNANCE);
   } else {
     signer = (await ethers.getSigners())[0];
   }

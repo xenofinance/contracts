@@ -2,7 +2,7 @@ import { Deploy } from "../Deploy";
 import { ethers } from "hardhat";
 import { Verify } from "../../Verify";
 import { Misc } from "../../Misc";
-import { SepoliaAddresses } from "../../addresses/SepoliaAddresses";
+import { ScrollTestnetAddresses } from "../../addresses/ScrollTestnetAddresses";
 
 async function main() {
   const signer = (await ethers.getSigners())[0];
@@ -12,13 +12,13 @@ async function main() {
   const router = await Deploy.deployXenoRouter01(
     signer,
     FACTORY,
-    SepoliaAddresses.WETH_TOKEN
+    ScrollTestnetAddresses.WETH_TOKEN
   );
 
   await Misc.wait(5);
   await Verify.verifyWithArgs(router.address, [
     FACTORY,
-    SepoliaAddresses.WETH_TOKEN,
+    ScrollTestnetAddresses.WETH_TOKEN,
   ]);
 }
 

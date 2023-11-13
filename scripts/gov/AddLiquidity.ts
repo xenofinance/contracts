@@ -8,7 +8,7 @@ import {
 } from "../../typechain";
 import { TestHelper } from "../../test/TestHelper";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
-import { SepoliaAddresses } from "../addresses/SepoliaAddresses";
+import { ScrollTestnetAddresses } from "../addresses/ScrollTestnetAddresses";
 import { Misc } from "../Misc";
 
 async function main() {
@@ -30,8 +30,8 @@ async function main() {
   // await Misc.runAndWait(() => IERC20__factory.connect('0x89B26AF36fA8705A27934fcED56D154BDA01315a', signer).approve(routerAdr, balance));
   // //
   // await Misc.runAndWait(() => router.removeLiquidity(
-  //   SepoliaAddresses.WETH_TOKEN,
-  //   SepoliaAddresses.USDC_TOKEN,
+  //   ScrollTestnetAddresses.WETH_TOKEN,
+  //   ScrollTestnetAddresses.USDC_TOKEN,
   //   false,
   //   balance,
   //   0,
@@ -44,8 +44,8 @@ async function main() {
     factory,
     router,
     signer,
-    SepoliaAddresses.WETH_TOKEN,
-    SepoliaAddresses.USDC_TOKEN,
+    ScrollTestnetAddresses.WETH_TOKEN,
+    ScrollTestnetAddresses.USDC_TOKEN,
     parseUnits("0.136", 18),
     parseUnits("213", 18),
     false
